@@ -17,20 +17,13 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
     final movie = widget.movie;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(movie.title),
-      ),
+      appBar: AppBar(title: Text(movie.title)),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // 🔹 Movie Banner
-            Image.asset(
-              movie.imageUrl,
-              width: double.infinity,
-              height: 250,
-              fit: BoxFit.cover,
-            ),
+            Image.network(movie.imageUrl, width: 50, fit: BoxFit.cover),
 
             Padding(
               padding: const EdgeInsets.all(16),
@@ -147,9 +140,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                     child: ElevatedButton(
                       onPressed: () {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Movie is Playing'),
-                          ),
+                          const SnackBar(content: Text('Movie is Playing')),
                         );
                       },
                       child: const Text('Play Now'),

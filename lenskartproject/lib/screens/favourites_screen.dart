@@ -17,7 +17,7 @@ class FavouritesScreen extends StatelessWidget {
       itemBuilder: (context, index) {
         final movie = movies[index];
         return ListTile(
-          leading: Image.asset(movie.imageUrl, width: 50),
+          leading: Image.network(movie.imageUrl, width: 50, fit: BoxFit.cover),
           title: Text(movie.title),
           subtitle: Text(movie.genre),
         );
