@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/movie.dart';
 import 'dummy_movies.dart';
+import 'movie_detail_screen.dart';
 
 class MoviesScreen extends StatefulWidget {
   const MoviesScreen({super.key});
@@ -65,6 +66,14 @@ class _MoviesScreenState extends State<MoviesScreen> {
                           ),
                           title: Text(movie.title),
                           subtitle: Text(movie.genre),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => MovieDetailScreen(movie: movie),
+                              ),
+                            );
+                          },
                         ),
                       );
                     },
